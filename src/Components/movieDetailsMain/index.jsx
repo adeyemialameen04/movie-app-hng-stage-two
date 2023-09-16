@@ -22,7 +22,6 @@ export const formatToUtcDate = (inputDateStr) => {
   return formattedDate;
 };
 function MovieDetailsMain({ movie }) {
-  // const { formattedDate } = useGetUtcTime();
 
   return (
     <div className="md:w-[70%]  px-3 overflow-y-scroll main overflow-x-hidden w-[100%]">
@@ -31,17 +30,18 @@ function MovieDetailsMain({ movie }) {
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt="movie-poster"
           className="w-full h-[300px] object-cover rounded-lg"
+          data-testid="movie-poster"
         />
 
         <div className="flex items-center md:text-[16px] text-[10px] gap-1">
-          <span movie-testid="movie-title" className="flex gap-4 md:pl-4">
+          <span data-testid="movie-title" className="flex gap-4 md:pl-4">
             {movie.title}
           </span>
 
-          <span movie-testid="movie-release-date" className="md:px-3">
+          <span data-testid="movie-release-date" className="md:px-3">
             {formatToUtcDate(movie.release_date)}
           </span>
-          <span movie-testid="movie-runtime">{movie.runtime}</span>
+          <span data-testid="movie-runtime">{movie.runtime}</span>
 
           <span className="flex items-center  md:justify-end  text-[10px] md:px-10 pl-4">
             {Icons.star()}
@@ -50,7 +50,7 @@ function MovieDetailsMain({ movie }) {
         </div>
         <p
           className="md:text-[15px] font-[300] leading-[30px] text-[13px] my-4"
-          movie-testid="movie-overview"
+          data-testid="movie-overview"
         >
           {movie.overview}
         </p>
@@ -58,12 +58,12 @@ function MovieDetailsMain({ movie }) {
         {/* <div className=" flex-col md:flex-row flex md:items-center md:gap-5  md:justify-between w-full  font-[500]">
           <div className=" flex-col flex gap-3 md:mt-4 text-[10px] md:text-[17px] md:flex-row mt-4">
             <div className="flex gap-3">
-              <span movie-testid="movie-release-date">
+              <span data-testid="movie-release-date">
                 {formattedDate(movie.release_date)}
               </span>
 
               <div>
-                <span movie-testid="movie-runtime">{movie.runtime}</span>
+                <span data-testid="movie-runtime">{movie.runtime}</span>
                 <span>min</span>
               </div>
             </div>

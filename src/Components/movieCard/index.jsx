@@ -51,7 +51,7 @@ function MovieCard({ movie }) {
         data-testid="movie-release-date"
         className="text-[12px] leading-[15.62px] my-3"
       >
-        {formattedDate(movie.release_date)}
+        {movie.release_date}
       </h4>
 
       <h2
